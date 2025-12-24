@@ -138,3 +138,8 @@ Built interactive dashboards to:
 ---
 
 ## Project Structure
+
+
+### References
+1. Smith, J., & Lee, A. (2023). Hybrid ML Forecasting & Inventory Optimization in a Multi-Channel Supply Chain. *International Journal of Engineering and Creative Research (IJECR)*.  
+2. Zhang, Y., & Kumar, R. (2021). Two-Stage Stochastic Optimization for Inventory Management under Demand Uncertainty. *European Journal of Operational Research (EJOR)*.
