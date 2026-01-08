@@ -141,5 +141,5 @@ Built interactive dashboards to:
 
 
 ### References
-1. Smith, J., & Lee, A. (2023). Hybrid ML Forecasting & Inventory Optimization in a Multi-Channel Supply Chain. *International Journal of Engineering and Creative Research (IJECR)*.  
-2. Zhang, Y., & Kumar, R. (2021). Two-Stage Stochastic Optimization for Inventory Management under Demand Uncertainty. *European Journal of Operational Research (EJOR)*.
+1. Presbitero, A., et al. (2025). A practical approach to replenishment optimization with extended (R, s, Q) policy and probabilistic models. *Scientific Reports *.  
+2. Abouelrous, A., Gabor, A.F., Zhang, Y. (2022). Optimizing the inventory and fulfillment of an omnichannel retailer: a stochastic approach with scenario clustering. *Computers & Industrial Engineering*.
