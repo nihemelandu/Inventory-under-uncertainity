@@ -30,7 +30,14 @@ This project addresses the problem of integrating probabilistic demand forecasti
 **Algorithm Characteristics**
 - Numerical optimization method
 - Handles black-box, nonconvex, constrained problems
-- Plays an analogous role to the simplex method in linear programming
+- Plays an analogous role to the simplex method in linear programming. While the simplex method is tightly coupled to linear programming and exploits LP-specific structure, the SHGO is a general-purpose global optimization algorithm chosen because:
+
+  - the objective is nonconvex
+  - gradients may be unreliable or unavailable
+  - global (not just local) optimality matters
+
+**Implementation**
+- scipy.optimize.shgo
 
 ## Attribution
 
