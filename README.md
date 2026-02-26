@@ -2,9 +2,9 @@
 
 ## Business Context
 
-Modern retailers no longer operate through a single channel. Today's omnichannel retailer serves customers both in physical stores and online — often from the same pool of inventory spread across multiple locations. These locations may be warehouses, fulfilment centres, stores, or a combination of all three.
+Modern retailers no longer operate through a single channel. Today's omnichannel retailer serves customers in both physical stores and online — often from the same inventory pool across multiple locations. These locations may be warehouses, fulfilment centres, stores, or a combination of all three.
 
-This creates an environment where inventory and distribution decisions are deeply interconnected, and where getting them wrong has a direct and measurable impact on profitability, operating costs, and customer satisfaction.
+This creates an environment where inventory and distribution decisions are deeply interconnected and where getting them wrong has a direct, measurable impact on profitability, operating costs, and customer satisfaction.
 
 ---
 
@@ -13,12 +13,12 @@ This creates an environment where inventory and distribution decisions are deepl
 Every omnichannel retailer faces two decisions that must be made together:
 
 **1. How much inventory to stock at each location — and when?**
-Stock too much and capital is tied up in holding costs. Stock too little and sales are lost, or orders are fulfilled from distant locations at high transportation cost.
+Stock too much, and capital is tied up in holding costs. Stock too little and sales are lost, or orders are fulfilled from distant locations at high transportation cost.
 
 **2. When an online order arrives, which location should fulfil it?**
 Any location in the network could potentially serve the order. Choosing the wrong one — whether because it is too far away, or because fulfilling from it will deplete stock needed elsewhere — is costly both financially and operationally.
 
-These two decisions are not independent. The right fulfilment strategy depends on how inventory is distributed across the network. The right inventory distribution depends on the fulfilment strategy you plan to use. Optimizing one without the other leaves significant value on the table.
+These two decisions are not independent. The right fulfillment strategy depends on how inventory is distributed across the network. The right inventory distribution depends on the fulfilment strategy you plan to use. Optimizing one without the other leaves significant value on the table.
 
 ---
 
@@ -33,6 +33,8 @@ Several factors make this problem genuinely difficult:
 **Fulfilment costs vary by distance.** Shipping an online order from a nearby location is cheap. Shipping it from across the network is expensive. The distribution of inventory across locations therefore has a direct impact on fulfilment costs.
 
 **Holding and fulfilment costs trade off against each other.** Stocking more inventory at each location reduces the need to ship from distant locations, but increases holding costs. Finding the right balance requires optimizing both simultaneously.
+
+**Policies that look good on average can fail badly under stress.** Most inventory models are validated under controlled or favourable conditions. The real test of a policy is how it holds up when demand spikes unexpectedly, the online and in-store demand mix shifts, or lead times extend. This dimension is rarely addressed rigorously.
 
 **Scale.** A retailer operating tens or hundreds of locations, across thousands of products, cannot make these decisions manually or through intuition alone.
 
@@ -50,6 +52,16 @@ The two stages reflect the natural timing of decisions in the real world:
 - **As demand arrives** — decide in real time which location fulfils each online order, reserving enough stock at each location to serve future in-store customers
 
 Computational complexity is managed through a scenario clustering technique that reduces the number of demand scenarios the model needs to evaluate without sacrificing solution quality.
+
+---
+
+## What Makes This Model Different
+
+Existing approaches in the literature address pieces of this problem in isolation. One stream of research focuses on replenishment optimization for a single location using probabilistic demand forecasting. Another focuses on multi-location inventory positioning and dynamic fulfilment routing in an omnichannel network, but assumes a simplified demand model and a one-time pre-season inventory buy with no ongoing replenishment.
+
+This project integrates both streams into a single unified model and extends them in one important direction that neither addresses:
+
+**Scenario-based stress testing.** Once the optimal policy is found, it is deliberately subjected to adverse demand conditions — unexpected demand spikes, shifts in the online and in-store demand mix, lead time extensions, and seasonal volatility. This quantifies the cost-service trade-offs and establishes how robust the policy is before it is deployed. A policy that performs well on average but collapses under stress is not a policy a business can rely on.
 
 ---
 
@@ -103,6 +115,7 @@ For each location in the network, the model produces:
 - A recommended initial inventory level for the start of the planning horizon
 - A replenishment schedule — when to order, how much, and a recommended cutoff date
 - A dynamic fulfilment policy — decision rules for routing online orders across the network each period as demand is realized
+- A stress test report — quantifying how the policy performs under a range of adverse demand scenarios, with explicit cost-service trade-off curves
 
 These outputs are designed to be actionable at the operational level while being directly linked to the financial and service level objectives that matter to the business.
 
