@@ -42,19 +42,13 @@ These two decisions are not independent. The right fulfilment strategy depends o
 
 ## 4. Strategic Goal
 
-Build a two-stage stochastic optimization model that jointly optimizes inventory positioning and fulfilment routing across an omnichannel retail network, under demand uncertainty, with explicit stress testing to quantify policy robustness before deployment.
+Reduce total cost to serve, minimize lost sales, and improve stock availability across the network by making better joint inventory positioning and fulfilment routing decisions under demand uncertainty.
 
 ---
 
 ## 5. Technical Goal
 
-Implement an end-to-end pipeline that:
-
-- Models demand uncertainty through probabilistic forecasting and scenario generation and clustering
-- Solves the joint inventory and fulfilment problem using two-stage stochastic programming
-- Extends the classical replenishment policy to support ongoing replenishment decisions throughout the planning horizon
-- Stress tests the resulting policy against adverse demand conditions including demand spikes, channel mix shifts, and lead time extensions
-- Produces actionable outputs at the SKU-location level
+Achieve this by building a two-stage stochastic optimization pipeline that integrates probabilistic demand forecasting, scenario clustering, joint inventory and replenishment optimization, dynamic fulfilment routing, and stress testing into a single end-to-end system.
 
 ---
 
